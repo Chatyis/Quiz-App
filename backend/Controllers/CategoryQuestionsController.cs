@@ -1,3 +1,4 @@
+using backend.Dtos;
 using Data;
 using Microsoft.AspNetCore.Mvc;
 using Models;
@@ -7,27 +8,26 @@ namespace Controllers;
 [ApiController]
 public class CategoryQuestions : ControllerBase
 {
-    DataProviderDapper dataProvider = new DataProviderDapper();
+    private DataProviderDapper _dataProvider = new DataProviderDapper();
 
     [HttpGet("questions")]
-    public IEnumerable<Question> GetQuestions(int categoryId)
+    public IEnumerable<QuestionDto> GetQuestions(int categoryId)
     {
-        // TODO hide correct answer in DTO
-        string sql = @"SELECT 
+        string sql = @"SELECT TOP(10) 
             [CategoryQuestionId],
-            [CategoryId],
             [QuestionContent],
             [AnswerOne],
             [AnswerTwo],
             [AnswerThree],
             [AnswerFour],
-            [CorrectAnswerNumber],
-            [CategoryImage]
+            [Image] 
             FROM CategoryQuestions
-            WHERE CategoryId = @CategoryId;";
+            WHERE CategoryId = @CategoryId
+            ORDER BY newid();";
+        
         var parameters = new { CategoryId = categoryId };
 
-        return dataProvider.GetItems<Question>(sql, parameters);
+        return _dataProvider.GetItems<QuestionDto>(sql, parameters);
     }
 
     [HttpGet("categories")]
@@ -35,13 +35,36 @@ public class CategoryQuestions : ControllerBase
     {
         string sql = "SELECT [CategoryId],[CategoryName],[FinalImage],[Icon] FROM [Categories]";
 
-        return dataProvider.GetItems<Category>(sql);
+        return _dataProvider.GetItems<Category>(sql);
     }
 
     [HttpPost("result")]
-    public int Result(Answer[] answers)
+    public int Result(QuizAnswers quizAnswers)
     {
-        //TODO calculate score by set of {categoryId, questionId, answer}[] 
-        return 5;
+        //TODO Check for the same question
+        IEnumerable<int> questionsIds = quizAnswers.Answers.Select(answer => answer.QuestionId);
+        
+        string sql = @"SELECT
+            [CategoryQuestionId]
+            ,[CorrectAnswerNumber]
+            FROM CategoryQuestions
+            WHERE CategoryId = @categoryId AND CategoryQuestionId IN @questionIds";
+
+        var parameters = new { @categoryId = quizAnswers.CategoryId, @questionIds = questionsIds };
+        
+        IEnumerable<QuestionWithAnswer> correctAnswers = _dataProvider.GetItems<QuestionWithAnswer>(sql, parameters);
+        
+        var finalResult = 0;
+
+        foreach(var answer in quizAnswers.Answers)
+        {
+            if (answer.AnswerId == correctAnswers
+                    .First(correctAnswer => correctAnswer.CategoryQuestionId == answer.QuestionId).CorrectAnswerNumber)
+            {
+                finalResult++;
+            }
+        }
+        
+        return finalResult;
     }
 }
