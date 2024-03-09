@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d78c8baa-40bf-41ba-b705-77c421e24915" name="Changes" comment="feat: Quiz flow without Auth">
+      <change afterPath="$PROJECT_DIR$/.idea/Quiz-App.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/.editorconfig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/angular.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/server.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/app.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/app.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/app.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/app.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/app.config.server.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/app.config.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/app.routes.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/assets/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/main.server.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/main.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/styles.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/tsconfig.app.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/tsconfig.spec.json" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 7
+}]]></component>
+  <component name="ProjectId" id="2dSsQuikhwJzOYB10CRn8ftGvtY" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/ziom2/Desktop/QuizApp/Quiz-App",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "npm.start.executor": "Run",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "ts.external.directory.path": "C:\\Users\\ziom2\\Desktop\\QuizApp\\Quiz-App\\frontend\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/frontend/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.start" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d78c8baa-40bf-41ba-b705-77c421e24915" name="Changes" comment="" />
+      <created>1710012801627</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1710012801627</updated>
+      <workItem from="1710012802810" duration="1170000" />
+    </task>
+    <task id="LOCAL-00001" summary="feat: Quiz flow without Auth">
+      <option name="closed" value="true" />
+      <created>1710012852914</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1710012852914</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="feat: Quiz flow without Auth" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: Quiz flow without Auth" />
+  </component>
+</project>
