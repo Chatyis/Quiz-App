@@ -1,0 +1,8 @@
+<div class="w-full flex gap-3">
+  <div class="w-2/5 bg-purple-800 flex justify-center items-center align-middle rounded">{{ categoryName }}</div>
+  <div class="w-3/5">
+    <p>Played: {{ playedTimes }} times</p>
+    <p>Level: {{ level }}</p>
+    <mat-progress-bar [value]="50"></mat-progress-bar>
+  </div>
+</div>

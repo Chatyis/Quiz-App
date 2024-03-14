@@ -1,0 +1,7 @@
+<div class="h-screen w-screen flex justify-center items-center bg-blue-300">
+  <div class="flex flex-wrap bg-white rounded gap-5 shadow-md p-8 justify-center w-[820px] ">
+    <app-quiz-description *ngIf="!isQuizStarted" [currentCategory]="currentCategory"
+                          (continue)="startQuiz()"></app-quiz-description>
+    <app-question [question]="questions[currentQuestionIndex]" *ngIf="isQuizStarted"></app-question>
+  </div>
+</div>

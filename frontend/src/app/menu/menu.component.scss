@@ -1,0 +1,9 @@
+:host {
+  .mat-progress-bar {
+    ::ng-deep {
+      .mdc-linear-progress__buffer-bar {
+        background: red;
+      }
+    }
+  }
+}
