@@ -1,7 +1,7 @@
 <div class="flex justify-center items-center h-screen w-screen bg-gray">
   <div class="flex flex-wrap bg-white p-5 rounded gap-5 bg-gray-light shadow-md h-[600px]">
     <!--    //TODO put max height here and make vertically scrollable -->
-    <div class="grid-cols-2 grid gap-3 h-[560px] overflow-y-scroll p-3 bg-gray rounded">
+    <div class="grid-cols-2 grid gap-3 h-[560px] overflow-y-scroll p-3 bg-gray rounded scroll-smooth">
       <app-category-block
         *ngFor="let category of categories"
         [category]="category">

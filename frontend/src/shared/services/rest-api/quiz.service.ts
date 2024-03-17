@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 
 import { Question } from '../../models/question.model';
+import { FormGroup } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -46,15 +47,18 @@ export class QuizService {
       image: null
     }];
 
-  constructor() {
-  }
-
   getQuestions(): Observable<Question[]> {
     return of(this.questions);
   }
 
-  getResults(): Observable<number> {
+  getResults(quizAnswers: FormGroup): Observable<number> {
+    // quizAnswers.getRawValue()
     // As from API returned value is just a number
     return of(4);
+  }
+
+  getCorrectAnswerId(questionId: number, categoryId: number): Observable<number> {
+    // As from API returned value is just a number
+    return of(2);
   }
 }

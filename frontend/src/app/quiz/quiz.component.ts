@@ -1,15 +1,16 @@
 import { ActivatedRoute, RouterLink } from "@angular/router";
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, UntypedFormGroup } from '@angular/forms';
 import { MatButton } from "@angular/material/button";
 
 import { Category } from "../../shared/models/category.model";
+import { DescriptionComponent } from './description/description.component';
 import { MenuService } from "../../shared/services/rest-api/menu.service";
+import { ResultComponent } from './result/result.component';
 import { QuizService } from '../../shared/services/rest-api/quiz.service';
 import { Question } from '../../shared/models/question.model';
-import { DescriptionComponent } from './description/description.component';
 import { QuestionComponent } from './question/question.component';
-import { ResultComponent } from './result/result.component';
 
 @Component({
   standalone: true,
@@ -25,24 +26,32 @@ import { ResultComponent } from './result/result.component';
   styleUrl: './quiz.component.scss'
 })
 export class QuizComponent implements OnInit {
-  currentCategory: Category;
-  questions: Question[];
-  currentQuestionIndex = 0; // TODO set to 0
-  isQuizStarted: boolean = true; // TODO remove value
-  correctAnswers: number = 4; // TODO remove value
+  protected currentCategory: Category;
+  protected questions: Question[] = [];
+  protected currentQuestionIndex = -1;
+  protected correctAnswers: number = 0;
 
-  get isQuizFinished(): boolean {
-    return this.currentQuestionIndex == this.questions.length;
+  protected quizForm: UntypedFormGroup = this.fb.group({
+    answers: this.fb.array([]),
+    categoryId: [null]
+  })
+
+  protected get isQuizFinished(): boolean {
+    return this.currentQuestionIndex === this.questions.length;
+  }
+
+  protected get isQuizStarted(): boolean {
+    return this.currentQuestionIndex > -1;
   }
 
   constructor(private route: ActivatedRoute,
               private menuService: MenuService,
-              private quizService: QuizService) {
+              private quizService: QuizService,
+              private fb: FormBuilder) {
   }
 
   ngOnInit() {
     this.fetchCategories();
-    this.fetchQuestions(); // TODO To be removed
   }
 
   setNextQuestion(): void {
@@ -53,7 +62,7 @@ export class QuizComponent implements OnInit {
   }
 
   protected startQuiz(): void {
-    this.isQuizStarted = true;
+    this.currentQuestionIndex = 0;
     this.fetchQuestions();
   }
 
@@ -71,7 +80,7 @@ export class QuizComponent implements OnInit {
   }
 
   private sendQuizAndGetResults(): void {
-    this.quizService.getResults().subscribe(correctAnswers =>
+    this.quizService.getResults(this.quizForm).subscribe(correctAnswers =>
       this.correctAnswers = correctAnswers
     )
   }

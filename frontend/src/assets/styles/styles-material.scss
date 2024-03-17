@@ -1,8 +1,3 @@
-.mat-mdc-raised-button:not(:disabled).mat-mdc-raised-button {
-  //background: #00C2D1;
-  //color: black;
-}
-
 .category-btn.mat-mdc-raised-button:not(:disabled).mat-mdc-raised-button {
   width: 100%;
   height: 130px;
@@ -12,4 +7,13 @@
 
 .fav-category-btn.mat-mdc-raised-button:not(:disabled).mat-mdc-raised-button {
   height: auto;
+}
+
+.correct > .mat-mdc-raised-button:not(:disabled).mat-mdc-raised-button {
+  background: #69f0ae;
+  color: black;
+}
+
+.wrong > .mat-mdc-raised-button:not(:disabled).mat-mdc-raised-button {
+  background: #f44336;
 }
