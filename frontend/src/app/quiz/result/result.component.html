@@ -1,1 +1,26 @@
-<p>result works!</p>
+<div class="flex flex-col items-center w-full -mt-2">
+  <!--  TODO Animals -> categoryName-->
+  <p class="self-start text-gray-500 font-medium">{{ "Animals" }}</p>
+  <p class="text-3xl font-semibold">Congratulations!</p>
+  <img class="w-64 rounded shadow-md my-4"
+       src="https://images.unsplash.com/photo-1598439210625-5067c578f3f6?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"/>
+  <p class="text-xl pt-5 text-gray-600 font-bold">You finished this quiz and there is Your result:</p>
+  <!--  TODO animate-->
+  <div class="relative mb-5 mt-2">
+    <mat-progress-spinner
+      class="example-margin"
+      color="accent"
+      mode="determinate"
+      [value]="result">
+    </mat-progress-spinner>
+    <p class="text-xl absolute text-center top-7 mb-0 left-0 right-0 flex justify-center items-center">
+      <span class="mb-4 text-2xl">{{ correctAnswers }}</span>
+      <span class="mx-1 text-4xl text-gray-500">/</span>
+      <span class="text-gray-500 mt-4 -ml-1 text-2xl">{{ questionsAmount }}</span>
+    </p>
+  </div>
+  <div class="grid grid-cols-2 w-full">
+    <button mat-button color="primary" class="mr-auto my-auto" routerLink="/main">Return</button>
+    <button mat-raised-button color="primary" class="ml-auto" (click)="replay()">Play again</button>
+  </div>
+</div>

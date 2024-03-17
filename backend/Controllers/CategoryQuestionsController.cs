@@ -33,7 +33,7 @@ public class CategoryQuestions : ControllerBase
     [HttpGet("categories")]
     public IEnumerable<Category> GetCategories()
     {
-        string sql = "SELECT [CategoryId],[CategoryName],[FinalImage],[Icon] FROM [Categories]";
+        string sql = "SELECT [CategoryId],[CategoryName],[FinalImage],[Icon],[CategoryDescription], [Color] FROM [Categories]";
 
         return _dataProvider.GetItems<Category>(sql);
     }

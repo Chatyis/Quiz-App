@@ -52,4 +52,9 @@ export class QuizService {
   getQuestions(): Observable<Question[]> {
     return of(this.questions);
   }
+
+  getResults(): Observable<number> {
+    // As from API returned value is just a number
+    return of(4);
+  }
 }

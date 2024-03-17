@@ -9,6 +9,7 @@ import { QuizService } from '../../shared/services/rest-api/quiz.service';
 import { Question } from '../../shared/models/question.model';
 import { DescriptionComponent } from './description/description.component';
 import { QuestionComponent } from './question/question.component';
+import { ResultComponent } from './result/result.component';
 
 @Component({
   standalone: true,
@@ -17,7 +18,8 @@ import { QuestionComponent } from './question/question.component';
     MatButton,
     RouterLink,
     DescriptionComponent,
-    QuestionComponent
+    QuestionComponent,
+    ResultComponent
   ],
   templateUrl: './quiz.component.html',
   styleUrl: './quiz.component.scss'
@@ -25,8 +27,13 @@ import { QuestionComponent } from './question/question.component';
 export class QuizComponent implements OnInit {
   currentCategory: Category;
   questions: Question[];
-  currentQuestionIndex = 0;
-  isQuizStarted: boolean;
+  currentQuestionIndex = 0; // TODO set to 0
+  isQuizStarted: boolean = true; // TODO remove value
+  correctAnswers: number = 4; // TODO remove value
+
+  get isQuizFinished(): boolean {
+    return this.currentQuestionIndex == this.questions.length;
+  }
 
   constructor(private route: ActivatedRoute,
               private menuService: MenuService,
@@ -35,11 +42,19 @@ export class QuizComponent implements OnInit {
 
   ngOnInit() {
     this.fetchCategories();
+    this.fetchQuestions(); // TODO To be removed
+  }
+
+  setNextQuestion(): void {
+    this.currentQuestionIndex++;
+    if (this.isQuizFinished) {
+      this.sendQuizAndGetResults();
+    }
   }
 
   protected startQuiz(): void {
-    this.fetchQuestions();
     this.isQuizStarted = true;
+    this.fetchQuestions();
   }
 
   protected fetchQuestions(): void {
@@ -53,5 +68,11 @@ export class QuizComponent implements OnInit {
       const categoryId = +this.route.snapshot.paramMap.get('id');
       this.currentCategory = categories.find(category => category.categoryId === categoryId);
     })
+  }
+
+  private sendQuizAndGetResults(): void {
+    this.quizService.getResults().subscribe(correctAnswers =>
+      this.correctAnswers = correctAnswers
+    )
   }
 }

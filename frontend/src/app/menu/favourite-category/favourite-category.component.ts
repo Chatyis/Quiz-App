@@ -1,11 +1,13 @@
 import { Component, Input } from '@angular/core';
 import { MatProgressBar } from "@angular/material/progress-bar";
+import { MatButton } from '@angular/material/button';
 
 @Component({
   selector: 'app-favourite-category',
   standalone: true,
   imports: [
-    MatProgressBar
+    MatProgressBar,
+    MatButton
   ],
   templateUrl: './favourite-category.component.html',
   styleUrl: './favourite-category.component.scss'

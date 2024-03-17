@@ -1,7 +1,11 @@
-<div class="h-screen w-screen flex justify-center items-center bg-blue-300">
-  <div class="flex flex-wrap bg-white rounded gap-5 shadow-md p-8 justify-center w-[820px] ">
+<div class="h-screen w-screen flex justify-center items-center bg-gray">
+  <div class="flex flex-wrap bg-white rounded gap-5 shadow-md p-8 justify-center w-[620px]">
     <app-quiz-description *ngIf="!isQuizStarted" [currentCategory]="currentCategory"
                           (continue)="startQuiz()"></app-quiz-description>
-    <app-question [question]="questions[currentQuestionIndex]" *ngIf="isQuizStarted"></app-question>
+    <app-question [currentQuestionIndex]="currentQuestionIndex"
+                  (questionAnswered)="setNextQuestion()" [questions]="questions"
+                  *ngIf="isQuizStarted && !isQuizFinished"></app-question>
+    <app-result class="w-full" [correctAnswers]="correctAnswers" [questionsAmount]="questions.length"
+                *ngIf="isQuizFinished"></app-result>
   </div>
 </div>

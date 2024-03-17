@@ -1,1 +1,19 @@
-<p>question works!</p>
+<p class="text-3xl flex justify-center items-center">
+  Question {{ currentQuestionIndex + 1 }}
+  <span class="text-sm block ml-2">/ {{ questions.length }}</span>
+</p>
+<!--TODO: Add logic for images-->
+<img/>
+<p class="text-2xl text-gray-600 text-center py-10 w-[540px]">{{ questions[currentQuestionIndex].questionContent }}</p>
+<span class="mb-1 block text-xs text-gray-500">{{ timeLeft }}s left...</span>
+<mat-progress-bar [value]="timeLeft / 30 * 100"></mat-progress-bar>
+<div class="grid-cols-2 grid gap-2 mt-3">
+  <app-answer-btn (choose)="addAnswer(1)" [answerId]="1"
+                  [answerContent]="questions[currentQuestionIndex].answerOne"></app-answer-btn>
+  <app-answer-btn (choose)="addAnswer(2)" [answerId]="2"
+                  [answerContent]="questions[currentQuestionIndex].answerTwo"></app-answer-btn>
+  <app-answer-btn (choose)="addAnswer(3)" [answerId]="3"
+                  [answerContent]="questions[currentQuestionIndex].answerThree"></app-answer-btn>
+  <app-answer-btn (choose)="addAnswer(4)" [answerId]="4"
+                  [answerContent]="questions[currentQuestionIndex].answerFour"></app-answer-btn>
+</div>
