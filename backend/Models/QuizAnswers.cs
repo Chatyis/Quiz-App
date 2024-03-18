@@ -1,6 +1,6 @@
 ﻿namespace Models;
 
-public class QuizAnswers
+public partial class QuizAnswers
 {
     public Answer[] Answers { get; set; } = [];
     public int CategoryId { get; set; }

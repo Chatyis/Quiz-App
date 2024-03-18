@@ -6,6 +6,7 @@ using Models;
 namespace Controllers;
 
 [ApiController]
+[Route("[controller]")]
 public class CategoryQuestions : ControllerBase
 {
     private DataProviderDapper _dataProvider = new DataProviderDapper();

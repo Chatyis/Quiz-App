@@ -4,19 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d78c8baa-40bf-41ba-b705-77c421e24915" name="Changes" comment="feat: button placement adjustment">
-      <change afterPath="$PROJECT_DIR$/frontend/src/shared/models/quiz-answers.model.ts" afterDir="false" />
+    <list default="true" id="d78c8baa-40bf-41ba-b705-77c421e24915" name="Changes" comment="feat: choosing category and quiz flow">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/menu/menu.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/menu/menu.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/quiz/question/answer-btn/answer-btn.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/quiz/question/answer-btn/answer-btn.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/quiz/question/answer-btn/answer-btn.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/quiz/question/answer-btn/answer-btn.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/quiz/question/question.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/quiz/question/question.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/quiz/question/question.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/quiz/question/question.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/quiz/quiz.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/quiz/quiz.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/quiz/quiz.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/quiz/quiz.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/assets/styles/styles-material.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/styles/styles-material.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/services/rest-api/menu.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/services/rest-api/menu.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/services/rest-api/quiz.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/services/rest-api/quiz.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +106,7 @@
       <workItem from="1710635329302" duration="5936000" />
       <workItem from="1710672346532" duration="499000" />
       <workItem from="1710673118753" duration="311000" />
-      <workItem from="1710675861398" duration="7148000" />
+      <workItem from="1710675861398" duration="8422000" />
     </task>
     <task id="LOCAL-00001" summary="feat: Quiz flow without Auth">
       <option name="closed" value="true" />
@@ -159,7 +148,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710641474621</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="feat: choosing category and quiz flow">
+      <option name="closed" value="true" />
+      <created>1710687429958</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1710687429958</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -182,6 +179,7 @@
     <MESSAGE value="feat: initial main page, question description, initial question page" />
     <MESSAGE value="feat: main page almost done, quiz without image questions" />
     <MESSAGE value="feat: button placement adjustment" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: button placement adjustment" />
+    <MESSAGE value="feat: choosing category and quiz flow" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: choosing category and quiz flow" />
   </component>
 </project>
