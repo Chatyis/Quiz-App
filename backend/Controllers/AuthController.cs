@@ -47,8 +47,7 @@ public class Auth : ControllerBase
         {
             return StatusCode(500,"User doesn't exists or password is incorrect");
         }
-
-        Response.Cookies.Append("token", "asdqwe");
+        
         return Ok(new Dictionary<string, string>
         {
             {"token",CreateToken(user.UserLogin)}
@@ -75,20 +74,39 @@ public class Auth : ControllerBase
         return Ok();
     }
 
-    // [HttpPost("/add-score")]
-    // public IActionResult AddScore()
-    // {
-    //     return Ok();
-    // }
-    [HttpGet("RefreshToken")]
-    public string RefreshToken()
+    [HttpPost("/logout")]
+    public IActionResult RevokeToken()
     {
+        if (!IsTokenValid())
+        {
+            return StatusCode(403, "Token invalid");
+        }
+
+        const string sql = @"update UserCredentials
+        set LastTokenId = null
+        where UserLogin = @UserLogin;";
+
+        dataProvider.Execute(sql, new {UserLogin = User.FindFirst("username")?.Value});
+        return Ok();
+    }
+    
+    [HttpGet("RefreshToken")]
+    public IActionResult RefreshToken()
+    {
+        if (!IsTokenValid())
+        {
+            return StatusCode(403,"Token invalid");
+        }
+        
         string usernameSql = @"
                 SELECT UserLogin FROM UserCredentials WHERE UserLogin = @Username";
 
         string username = dataProvider.GetItem<string>(usernameSql,new {Username= User.FindFirst("username")?.Value });
-
-        return CreateToken(username);
+        
+        return Ok(new Dictionary<string, string>
+        {
+            {"token",CreateToken(username)}
+        });
     }
     
     private string CreateToken(string username)
@@ -114,14 +132,50 @@ public class Auth : ControllerBase
         {
             Subject = new ClaimsIdentity(claims),
             SigningCredentials = credentials,
-            Expires = DateTime.Now.AddDays(1)
+            Expires = DateTime.Now.AddSeconds(20)
         };
 
         JwtSecurityTokenHandler tokenHandler = new JwtSecurityTokenHandler();
 
         SecurityToken token = tokenHandler.CreateToken(descriptor);
+        
+        var tokenAsString = tokenHandler.WriteToken(token);
 
-        return tokenHandler.WriteToken(token);
+        SaveToken(username, tokenAsString);
 
+        return tokenAsString;
+    }
+
+    private void SaveToken(string userLogin, string lastTokenId)
+    {
+        const string sql = @"update UserCredentials
+        set LastTokenId = @LastTokenId
+        where UserLogin = @UserLogin;";
+
+        dataProvider.Execute(sql, new {UserLogin = userLogin, LastTokenId = lastTokenId});
+    }
+
+    private bool IsTokenValid()
+    {        
+        string tokenSql = @"
+                SELECT LastTokenId FROM UserCredentials WHERE UserLogin = @Username";
+        
+        string lastTokenId = dataProvider.GetItem<string>(tokenSql,new {Username= User.FindFirst("username")?.Value });
+
+        if (HttpContext.Request.Headers.TryGetValue("Authorization", out var headerAuth))
+        {
+            var jwtToken = headerAuth.First().Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)[1];
+            if (lastTokenId != jwtToken)
+            {
+                return false;
+            }
+
+            if (new JwtSecurityToken(jwtToken).ValidTo < DateTime.UtcNow)
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
 }
