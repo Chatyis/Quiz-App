@@ -60,7 +60,7 @@ public class Auth : ControllerBase
     {
         var login = new Login();
         login.UserLogin = register.UserLogin;
-        
+
         var salt = Convert.ToBase64String(RandomNumberGenerator.GetBytes(32));
         login.PasswordSalt = salt;
 
@@ -77,11 +77,6 @@ public class Auth : ControllerBase
     [HttpPost("/logout")]
     public IActionResult RevokeToken()
     {
-        if (!IsTokenValid())
-        {
-            return StatusCode(403, "Token invalid");
-        }
-
         const string sql = @"update UserCredentials
         set LastTokenId = null
         where UserLogin = @UserLogin;";
@@ -93,11 +88,6 @@ public class Auth : ControllerBase
     [HttpGet("RefreshToken")]
     public IActionResult RefreshToken()
     {
-        if (!IsTokenValid())
-        {
-            return StatusCode(403,"Token invalid");
-        }
-        
         string usernameSql = @"
                 SELECT UserLogin FROM UserCredentials WHERE UserLogin = @Username";
 
@@ -153,29 +143,5 @@ public class Auth : ControllerBase
         where UserLogin = @UserLogin;";
 
         dataProvider.Execute(sql, new {UserLogin = userLogin, LastTokenId = lastTokenId});
-    }
-
-    private bool IsTokenValid()
-    {        
-        string tokenSql = @"
-                SELECT LastTokenId FROM UserCredentials WHERE UserLogin = @Username";
-        
-        string lastTokenId = dataProvider.GetItem<string>(tokenSql,new {Username= User.FindFirst("username")?.Value });
-
-        if (HttpContext.Request.Headers.TryGetValue("Authorization", out var headerAuth))
-        {
-            var jwtToken = headerAuth.First().Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)[1];
-            if (lastTokenId != jwtToken)
-            {
-                return false;
-            }
-
-            if (new JwtSecurityToken(jwtToken).ValidTo < DateTime.UtcNow)
-            {
-                return false;
-            }
-        }
-
-        return true;
     }
 }
