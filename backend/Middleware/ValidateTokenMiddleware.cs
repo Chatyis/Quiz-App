@@ -25,7 +25,7 @@ public class ValidateTokenMiddleware
 
             string lastTokenId = dataProvider.GetItem<string>(tokenSql,new {Username= jwtToken.Claims.FirstOrDefault(claim => claim.Type == "username").Value });
 
-            if (lastTokenId != jwtTokenValue || jwtToken.ValidTo < DateTime.UtcNow)
+            if (lastTokenId != jwtTokenValue || (jwtToken.ValidTo < DateTime.UtcNow && context.Request.Path != "/Auth/RefreshToken"))
             {
                 context.Response.StatusCode = 403;
                 await context.Response.WriteAsync("Token invalid");

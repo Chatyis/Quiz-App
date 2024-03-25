@@ -28,7 +28,8 @@ public class Auth : ControllerBase
     [HttpPost("/login")]
     public IActionResult Login(Register loginCredentials)
     {
-        string sql = @"SELECT [UserLogin]
+        string sql = @"SELECT [UserCredentialsId]
+          ,[UserLogin]
           ,[PasswordHash]
           ,[PasswordSalt]
          FROM UserCredentials
@@ -50,7 +51,7 @@ public class Auth : ControllerBase
         
         return Ok(new Dictionary<string, string>
         {
-            {"token",CreateToken(user.UserLogin)}
+            {"token",CreateToken(user.UserLogin, user.UserCredentialsId.ToString())}
         });
     }
     
@@ -58,20 +59,33 @@ public class Auth : ControllerBase
     [HttpPost("/register")]
     public IActionResult Register(Register register)
     {
-        var login = new Login();
-        login.UserLogin = register.UserLogin;
-
-        var salt = Convert.ToBase64String(RandomNumberGenerator.GetBytes(32));
-        login.PasswordSalt = salt;
-
-        var hash = BC.EnhancedHashPassword(register.UserPassword + salt);
-
-        login.PasswordHash = hash;
+        string userSql = @"SELECT 1
+         FROM UserCredentials
+         WHERE UserCredentials.UserLogin = @UserLogin";
         
-        dataProvider.Execute(@"INSERT INTO UserCredentials (UserLogin, PasswordHash, PasswordSalt)
+        try
+        {
+            dataProvider.GetItem<Login>(userSql, new { UserLogin = register.UserLogin });
+            
+            return StatusCode(500, "User already exists!");
+        }
+        catch
+        {
+            var login = new Login();
+            login.UserLogin = register.UserLogin;
+        
+            var salt = Convert.ToBase64String(RandomNumberGenerator.GetBytes(32));
+            login.PasswordSalt = salt;
+
+            var hash = BC.EnhancedHashPassword(register.UserPassword + salt);
+
+            login.PasswordHash = hash;
+        
+            dataProvider.Execute(@"INSERT INTO UserCredentials (UserLogin, PasswordHash, PasswordSalt)
             VALUES (@UserLogin, @PasswordHash, @PasswordSalt)", login);
         
-        return Ok();
+            return Ok();
+        }
     }
 
     [HttpPost("/logout")]
@@ -79,30 +93,41 @@ public class Auth : ControllerBase
     {
         const string sql = @"update UserCredentials
         set LastTokenId = null
-        where UserLogin = @UserLogin;";
+        where UserCredentialsId = @UserId;";
 
-        dataProvider.Execute(sql, new {UserLogin = User.FindFirst("username")?.Value});
+        dataProvider.Execute(sql, new {UserLogin = User.FindFirst("userId")?.Value});
         return Ok();
     }
     
     [HttpGet("RefreshToken")]
     public IActionResult RefreshToken()
     {
-        string usernameSql = @"
-                SELECT UserLogin FROM UserCredentials WHERE UserLogin = @Username";
+        HttpContext.Request.Headers.TryGetValue("Authorization", out var headerAuth);
+        var jwtTokenValue = headerAuth.First().Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)[1];
+        var jwtToken = new JwtSecurityToken(jwtTokenValue);
+        
+        if (jwtToken.ValidTo.AddHours(23) < DateTime.UtcNow)
+        {
+            return StatusCode(403, "Token invalid");
+        }
 
-        string username = dataProvider.GetItem<string>(usernameSql,new {Username= User.FindFirst("username")?.Value });
+        // TODO I don't delete it right now idk what I meant with this part xD
+        // string usernameSql = @"
+        //         SELECT UserLogin FROM UserCredentials WHERE UserLogin = @Username";
+        //
+        // string username = dataProvider.GetItem<string>(usernameSql,new {Username= User.FindFirst("username")?.Value });
         
         return Ok(new Dictionary<string, string>
         {
-            {"token",CreateToken(username)}
+            {"token",CreateToken(User.FindFirst("username")?.Value, User.FindFirst("userId")?.Value)}
         });
     }
     
-    private string CreateToken(string username)
+    private string CreateToken(string username, string userId)
     {
         var claims = new Claim[] {
-            new ("username", username)
+            new ("username", username),
+            new ("userId", userId)
         };
 
         string? tokenKeyString = _config.GetSection("AppSettings:TokenKey").Value;
@@ -122,7 +147,7 @@ public class Auth : ControllerBase
         {
             Subject = new ClaimsIdentity(claims),
             SigningCredentials = credentials,
-            Expires = DateTime.Now.AddSeconds(20)
+            Expires = DateTime.Now.AddMinutes(30)
         };
 
         JwtSecurityTokenHandler tokenHandler = new JwtSecurityTokenHandler();
@@ -131,17 +156,17 @@ public class Auth : ControllerBase
         
         var tokenAsString = tokenHandler.WriteToken(token);
 
-        SaveToken(username, tokenAsString);
+        SaveToken(userId, tokenAsString);
 
         return tokenAsString;
     }
 
-    private void SaveToken(string userLogin, string lastTokenId)
+    private void SaveToken(string userId, string lastTokenId)
     {
         const string sql = @"update UserCredentials
         set LastTokenId = @LastTokenId
-        where UserLogin = @UserLogin;";
+        where UserCredentialsId = @UserId;";
 
-        dataProvider.Execute(sql, new {UserLogin = userLogin, LastTokenId = lastTokenId});
+        dataProvider.Execute(sql, new {UserId = userId, LastTokenId = lastTokenId});
     }
 }
