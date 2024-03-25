@@ -24,4 +24,10 @@ public class DataProviderDapper
         var connection = new SqlConnection(connectionString);
         return connection.Execute(sql, param) > 0;
     }
+
+    public bool ExecuteScalar(string sql, object? param = null)
+    {
+        var connection = new SqlConnection(connectionString);
+        return connection.ExecuteScalar<bool>(sql, param);
+    }
 }
