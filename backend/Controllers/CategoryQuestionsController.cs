@@ -1,5 +1,6 @@
 using backend.Dtos;
 using Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Models;
 
@@ -9,8 +10,6 @@ namespace Controllers;
 [Route("[controller]")]
 public class CategoryQuestions : ControllerBase
 {
-    //TODO GET User's top 4 or 5 scores (level, exp, exp to next level) lets assume that each level require 5 more exp so 2 level - 10 xp, 3 level - 15xp, 4th - 20xp ... So it's calculated on the frontend
-    //TODO Finish sending results - save to Scores table or update if exists
     private DataProviderDapper _dataProvider = new DataProviderDapper();
 
     [HttpGet("questions")]
@@ -77,6 +76,23 @@ public class CategoryQuestions : ControllerBase
         return finalResult;
     }
 
+    [Authorize]
+    [HttpGet("highscores")]
+    public IEnumerable<UserScore> GetHighscores()
+    {
+        string highestScoresSql = @"SELECT TOP 5 
+            UserCredentialsId, 
+            CategoryId, 
+            Experience, 
+            TimesPlayed
+        FROM Scores
+        WHERE UserCredentialsId = @UserId
+        ORDER BY Experience DESC;";
+        
+        return _dataProvider.GetItems<UserScore>(highestScoresSql,
+            new { UserId = Int32.Parse(User.FindFirst("userId").Value) });
+    }
+    
     private void SaveScore(int CategoryId, int result)
     {
         string addScoreSql = @"INSERT INTO Scores (UserCredentialsId, CategoryId, Experience, TimesPlayed)
