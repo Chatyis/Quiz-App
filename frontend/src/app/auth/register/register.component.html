@@ -1,0 +1,10 @@
+<app-input description="Login"></app-input>
+<app-input [isPasswordType]="true" description="Password"></app-input>
+<app-input [isPasswordType]="true" description="Confirm password"></app-input>
+
+<app-action-buttons leftButtonName="Back to login"
+                    rightButtonName="Register"
+                    buttonRoute="../login"
+                    (nextButtonClicked)="register()">
+</app-action-buttons>
+

@@ -1,0 +1,7 @@
+<div class="m-auto w-full">
+  <mat-form-field class="w-full">
+    <mat-icon matPrefix>{{ isPasswordType ? 'lock' : 'person' }}</mat-icon>
+    <mat-label> {{ description }}</mat-label>
+    <input matInput [type]="isPasswordType ? 'password' : 'text'">
+  </mat-form-field>
+</div>
