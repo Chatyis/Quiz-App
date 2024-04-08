@@ -1,9 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+@use '@angular/material-experimental' as matx;
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @import "assets/styles/styles-material";
+
+$m3-dark-theme: matx.define-theme((
+  color: (
+    theme-type: dark,
+    primary: matx.$m3-orange-palette,
+    tertiary: matx.$m3-magenta-palette,
+  ),
+));
+
+html {
+  @include mat.all-component-themes($m3-dark-theme);
+}
 
 html, body {
   height: 100%;
@@ -12,8 +27,6 @@ html, body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-
-
 }
 
 ::-webkit-scrollbar {

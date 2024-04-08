@@ -1,8 +1,8 @@
 <div class="flex justify-between mt-5">
-  <button [routerLink]="buttonRoute" color="primary" mat-button>
+  <button [routerLink]="buttonRoute" mat-button>
     {{ leftButtonName }}
   </button>
-  <button mat-raised-button (click)="nextButtonClicked.emit()">
+  <button mat-flat-button (click)="nextButtonClicked.emit()">
     {{ rightButtonName }}
   </button>
 </div>
