@@ -80,6 +80,7 @@ public class CategoryQuestions : ControllerBase
     [HttpGet("highscores")]
     public IEnumerable<UserScore> GetHighscores()
     {
+        //TODO check if UserCredentialsId can be removed from query
         string highestScoresSql = @"SELECT TOP 5 
             UserCredentialsId, 
             CategoryId, 
@@ -92,7 +93,28 @@ public class CategoryQuestions : ControllerBase
         return _dataProvider.GetItems<UserScore>(highestScoresSql,
             new { UserId = Int32.Parse(User.FindFirst("userId").Value) });
     }
-    
+
+    [Authorize]
+    [HttpGet("categoryUserScore")]
+    public ActionResult<UserCategoryScoreDto> getCategoryUserScore(int categoryId)
+    {
+        string sql = @"SELECT 
+            [Experience],
+            [TimesPlayed]
+        FROM Scores 
+        WHERE CategoryId = @CategoryId 
+            AND UserCredentialsId = @UserCredentialsId ";
+
+        try
+        {
+            return _dataProvider.GetItem<UserCategoryScoreDto>(sql, new { CategoryId = categoryId, UserCredentialsId = Int32.Parse(User.FindFirst("userId").Value)});
+        }
+        catch (Exception e)
+        {
+            return NotFound();
+        }
+    }
+
     private void SaveScore(int CategoryId, int result)
     {
         string addScoreSql = @"INSERT INTO Scores (UserCredentialsId, CategoryId, Experience, TimesPlayed)
