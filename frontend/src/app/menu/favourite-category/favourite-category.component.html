@@ -1,8 +1,12 @@
 <div class="w-full flex gap-3">
-  <button class="w-2/5 fav-category-btn" color="primary" mat-raised-button>{{ categoryName }}</button>
+  <button routerLink="../quiz/{{category.categoryId}}" [style.background-color]="'#'+category.color"
+          class="w-2/5 fav-category-btn"
+          color="primary"
+          mat-raised-button>{{ category.categoryName }}
+  </button>
   <div class="w-3/5">
-    <p>Played: {{ playedTimes }} times</p>
+    <p>Played: {{ categoryScore.timesPlayed }} times</p>
     <p>Level: {{ level }}</p>
-    <mat-progress-bar [value]="50"></mat-progress-bar>
+    <mat-progress-bar [value]="experienceLeft * 10"></mat-progress-bar>
   </div>
 </div>

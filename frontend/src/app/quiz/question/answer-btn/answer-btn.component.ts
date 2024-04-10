@@ -16,5 +16,7 @@ export class AnswerBtnComponent {
   @Input() answerId: number;
   @Input() answerContent: string;
   @Input() isShowingAnswer: boolean;
+  @Input() isWrong: boolean;
+  @Input() isCorrect: boolean;
   @Output() choose: EventEmitter<number> = new EventEmitter<number>()
 }

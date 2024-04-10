@@ -4,10 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d78c8baa-40bf-41ba-b705-77c421e24915" name="Changes" comment="feat: auth template">
+    <list default="true" id="d78c8baa-40bf-41ba-b705-77c421e24915" name="Changes" comment="feat: material upgrade - adjusted styling to more universal, changed theme, fixed favourite categories">
+      <change afterPath="$PROJECT_DIR$/frontend/src/shared/models/user-score.model.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/angular.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/auth/components/action-buttons/action-buttons.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/auth/components/action-buttons/action-buttons.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/menu/favourite-category/favourite-category.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/menu/favourite-category/favourite-category.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/menu/favourite-category/favourite-category.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/menu/favourite-category/favourite-category.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/menu/menu.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/menu/menu.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/menu/menu.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/menu/menu.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/quiz/description/description.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/quiz/description/description.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/quiz/question/answer-btn/answer-btn.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/quiz/question/answer-btn/answer-btn.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/quiz/question/answer-btn/answer-btn.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/quiz/question/answer-btn/answer-btn.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/quiz/question/question.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/quiz/question/question.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/quiz/result/result.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/quiz/result/result.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/assets/styles/styles-material.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/styles/styles-material.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/services/rest-api/menu.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/services/rest-api/menu.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/styles.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,6 +41,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="SOFT" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -46,24 +57,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "material-3",
-    "last_opened_file_path": "C:/Users/ziom2/Desktop/QuizApp/Quiz-App",
-    "list.type.of.created.stylesheet": "SCSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "npm.start.executor": "Run",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "ts.external.directory.path": "C:\\Users\\ziom2\\Desktop\\QuizApp\\Quiz-App\\frontend\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;material-3&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/ziom2/Desktop/QuizApp/Quiz-App&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;SCSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.start.executor&quot;: &quot;Run&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\ziom2\\Desktop\\QuizApp\\Quiz-App\\frontend\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\ziom2\Desktop\QuizApp\Quiz-App\frontend\src\app\auth" />
@@ -114,6 +125,7 @@
       <workItem from="1711663391687" duration="4500000" />
       <workItem from="1712525973630" duration="2547000" />
       <workItem from="1712596081030" duration="10381000" />
+      <workItem from="1712674828201" duration="7430000" />
     </task>
     <task id="LOCAL-00001" summary="feat: Quiz flow without Auth">
       <option name="closed" value="true" />
@@ -187,7 +199,23 @@
       <option name="project" value="LOCAL" />
       <updated>1712605515317</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="feat: fixed back compat, defined new theme">
+      <option name="closed" value="true" />
+      <created>1712616276075</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1712616276075</updated>
+    </task>
+    <task id="LOCAL-00011" summary="fix: fixed back compat, defined new theme">
+      <option name="closed" value="true" />
+      <created>1712616303354</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1712616303354</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -213,6 +241,9 @@
     <MESSAGE value="feat: choosing category and quiz flow" />
     <MESSAGE value="feat: getting highscores" />
     <MESSAGE value="feat: auth template" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: auth template" />
+    <MESSAGE value="feat: fixed back compat, defined new theme" />
+    <MESSAGE value="fix: fixed back compat, defined new theme" />
+    <MESSAGE value="feat: material upgrade - adjusted styling to more universal, changed theme, fixed favourite categories" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: material upgrade - adjusted styling to more universal, changed theme, fixed favourite categories" />
   </component>
 </project>

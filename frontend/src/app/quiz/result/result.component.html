@@ -3,7 +3,8 @@
   <p class="self-start text-gray-500 font-medium">{{ "Animals" }}</p>
   <p class="text-3xl font-semibold">Congratulations!</p>
   <img class="w-64 rounded shadow-md my-4"
-       src="https://images.unsplash.com/photo-1598439210625-5067c578f3f6?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"/>
+       src="https://images.unsplash.com/photo-1598439210625-5067c578f3f6?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+       alt=""/>
   <p class="text-xl pt-5 text-gray-600 font-bold">You finished this quiz and there is Your result:</p>
   <!--  TODO animate-->
   <div class="relative mb-5 mt-2">
@@ -21,6 +22,6 @@
   </div>
   <div class="grid grid-cols-2 w-full">
     <button mat-button color="primary" class="mr-auto my-auto" routerLink="/main">Return</button>
-    <button mat-raised-button color="primary" class="ml-auto" (click)="replay()">Play again</button>
+    <button mat-flat-button color="primary" class="ml-auto" (click)="replay()">Play again</button>
   </div>
 </div>

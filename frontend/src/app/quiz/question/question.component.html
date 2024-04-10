@@ -12,17 +12,21 @@
   <app-answer-btn (choose)="handleQuestionAnswer(1)" [answerId]="1"
                   [answerContent]="currentQuestion.answerOne"
                   [isShowingAnswer]="isShowingAnswer"
-                  [ngClass]="{'correct':correctAnswerId==1 && isShowingAnswer, 'wrong':correctAnswerId!=currentAnswerId && currentAnswerId == 1 && isShowingAnswer}"></app-answer-btn>
+                  [isWrong]="correctAnswerId!=currentAnswerId && currentAnswerId == 1"
+                  [isCorrect]="correctAnswerId==1 "></app-answer-btn>
   <app-answer-btn (choose)="handleQuestionAnswer(2)" [answerId]="2"
                   [answerContent]="currentQuestion.answerTwo"
                   [isShowingAnswer]="isShowingAnswer"
-                  [ngClass]="{'correct':correctAnswerId==2 && isShowingAnswer, 'wrong':correctAnswerId!=currentAnswerId && currentAnswerId == 2 && isShowingAnswer}"></app-answer-btn>
+                  [isWrong]="correctAnswerId!=currentAnswerId && currentAnswerId == 2"
+                  [isCorrect]="correctAnswerId==2 "></app-answer-btn>
   <app-answer-btn (choose)="handleQuestionAnswer(3)" [answerId]="3"
                   [answerContent]="currentQuestion.answerThree"
                   [isShowingAnswer]="isShowingAnswer"
-                  [ngClass]="{'correct':correctAnswerId==3 && isShowingAnswer, 'wrong':correctAnswerId!=currentAnswerId && currentAnswerId == 3 && isShowingAnswer}"></app-answer-btn>
+                  [isWrong]="correctAnswerId!=currentAnswerId && currentAnswerId == 3"
+                  [isCorrect]="correctAnswerId==3 "></app-answer-btn>
   <app-answer-btn (choose)="handleQuestionAnswer(4)" [answerId]="4"
                   [answerContent]="currentQuestion.answerFour"
                   [isShowingAnswer]="isShowingAnswer"
-                  [ngClass]="{'correct':correctAnswerId==4 && isShowingAnswer, 'wrong':correctAnswerId!=currentAnswerId && currentAnswerId == 4 && isShowingAnswer}"></app-answer-btn>
+                  [isWrong]="correctAnswerId!=currentAnswerId && currentAnswerId == 4"
+                  [isCorrect]="correctAnswerId==4 "></app-answer-btn>
 </div>

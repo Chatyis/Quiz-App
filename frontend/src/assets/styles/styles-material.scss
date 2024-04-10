@@ -3,17 +3,11 @@
   height: 130px;
   padding: 0 120px;
   font-size: 1.5rem;
+  color: white;
+  border-radius: 15px;
 }
 
 .fav-category-btn.mat-mdc-raised-button:not(:disabled).mat-mdc-raised-button {
   height: auto;
-}
-
-.correct > .mat-mdc-raised-button:not(:disabled).mat-mdc-raised-button {
-  //background: #69f0ae;
-  color: black;
-}
-
-.wrong > .mat-mdc-raised-button:not(:disabled).mat-mdc-raised-button {
-  //background: #f44336;
+  color: white;
 }
