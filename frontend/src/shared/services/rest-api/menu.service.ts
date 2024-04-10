@@ -3,12 +3,13 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from "rxjs";
 
 import { Category } from "../../models/category.model";
+import { UserScore } from '../../models/user-score.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MenuService {
-  readonly categories: Category[] = [
+  readonly categoriesMock: Category[] = [
     {
       "categoryId": 1,
       "categoryName": "Games",
@@ -137,8 +138,18 @@ export class MenuService {
       "color": "5771CF"
     }
   ]
+  readonly favoriteCategoriesScore: UserScore[] = [
+    {categoryId: 1, timesPlayed: 2, experience: 15},
+    {categoryId: 3, timesPlayed: 5, experience: 25},
+    {categoryId: 5, timesPlayed: 8, experience: 55},
+    {categoryId: 2, timesPlayed: 12, experience: 45}
+  ]
 
   getCategories(): Observable<Category[]> {
-    return of(this.categories);
+    return of(this.categoriesMock);
+  }
+
+  getFavouriteCategories(): Observable<UserScore[]> {
+    return of(this.favoriteCategoriesScore);
   }
 }

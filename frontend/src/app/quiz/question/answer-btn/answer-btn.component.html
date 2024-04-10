@@ -1,4 +1,5 @@
 <!--TODO disable these buttons properly-->
-<button class="w-full" mat-raised-button [color]="isShowingAnswer?'disabled':'primary'"
+<button class="w-full" mat-flat-button
+        [color]="isWrong && isShowingAnswer?'warn':isCorrect && isShowingAnswer?'primary':isShowingAnswer?'accent':'primary'"
         (click)="choose.emit(answerId)">{{ answerContent }}
 </button>
