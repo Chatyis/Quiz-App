@@ -1,5 +1,13 @@
 <!--TODO disable these buttons properly-->
-<button class="w-full" mat-flat-button
+<button class="w-full answer-btn" mat-flat-button
+        *ngIf="(isWrong || isCorrect) && isShowingAnswer else highlightedButton"
         [color]="isWrong && isShowingAnswer?'warn':isCorrect && isShowingAnswer?'primary':isShowingAnswer?'accent':'primary'"
         (click)="choose.emit(answerId)">{{ answerContent }}
 </button>
+
+<ng-template #highlightedButton>
+  <button class="w-full answer-btn" mat-raised-button
+          [color]="isWrong && isShowingAnswer?'warn':isCorrect && isShowingAnswer?'primary':isShowingAnswer?'accent':'primary'"
+          (click)="choose.emit(answerId)">{{ answerContent }}
+  </button>
+</ng-template>

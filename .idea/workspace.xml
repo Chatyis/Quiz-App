@@ -5,19 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d78c8baa-40bf-41ba-b705-77c421e24915" name="Changes" comment="feat: material upgrade - adjusted styling to more universal, changed theme, fixed favourite categories">
-      <change afterPath="$PROJECT_DIR$/frontend/src/shared/models/user-score.model.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/menu/favourite-category/favourite-category.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/menu/favourite-category/favourite-category.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/menu/favourite-category/favourite-category.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/menu/favourite-category/favourite-category.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/menu/menu.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/menu/menu.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/menu/menu.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/menu/menu.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/quiz/description/description.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/quiz/description/description.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/menu/menu.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/menu/menu.component.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/quiz/question/answer-btn/answer-btn.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/quiz/question/answer-btn/answer-btn.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/quiz/question/answer-btn/answer-btn.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/quiz/question/answer-btn/answer-btn.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/quiz/question/question.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/quiz/question/question.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/quiz/result/result.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/quiz/result/result.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/quiz/question/question.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/quiz/question/question.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/quiz/quiz.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/quiz/quiz.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/assets/styles/styles-material.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/styles/styles-material.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/services/rest-api/menu.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/services/rest-api/menu.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/styles.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -61,7 +55,7 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;material-3&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/ziom2/Desktop/QuizApp/Quiz-App&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;SCSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -95,6 +89,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="npm.start" />
+        <item itemvalue="npm.start" />
       </list>
     </recent_temporary>
   </component>
@@ -126,6 +121,7 @@
       <workItem from="1712525973630" duration="2547000" />
       <workItem from="1712596081030" duration="10381000" />
       <workItem from="1712674828201" duration="7430000" />
+      <workItem from="1712767270945" duration="4221000" />
     </task>
     <task id="LOCAL-00001" summary="feat: Quiz flow without Auth">
       <option name="closed" value="true" />
@@ -226,7 +222,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>

@@ -1,13 +1,14 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatButton } from '@angular/material/button';
-import { NgClass } from '@angular/common';
+import { NgClass, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-answer-btn',
   standalone: true,
   imports: [
     MatButton,
-    NgClass
+    NgClass,
+    NgIf
   ],
   templateUrl: './answer-btn.component.html',
   styleUrl: './answer-btn.component.scss'
