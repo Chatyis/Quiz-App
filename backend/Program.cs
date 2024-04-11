@@ -12,8 +12,6 @@ builder.Services.AddControllers();
 
 string tokenKeyString = builder.Configuration.GetSection("AppSettings:TokenKey").Value;
 
-var frontendSpecificOrigins = "_frontendSpecificOrigins";
-
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
@@ -30,10 +28,10 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy(name: "_frontendSpecificOrigins",
+    options.AddDefaultPolicy(
         policy  =>
         {
-            policy.WithOrigins("http://localhost:4200");
+            policy.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader();
         });
 });
 
@@ -41,7 +39,8 @@ var app = builder.Build();
 
 app.UseTokenValidate();
 
-app.UseCors(frontendSpecificOrigins);
+app.UseCors(
+    options => options.SetIsOriginAllowed(x => _ = true).AllowAnyMethod().AllowAnyHeader());
 
 app.UseAuthentication();
 app.UseAuthorization();
