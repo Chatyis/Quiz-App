@@ -46,8 +46,7 @@ public class Auth : ControllerBase
         }
         catch
         {
-            var response = new { message = "User doesn't exists or password is incorrect" };
-            return StatusCode(500,response);
+            return StatusCode(500,new { message = "User doesn't exists or password is incorrect" });
         }
         
         return Ok(new Dictionary<string, string>
@@ -68,7 +67,7 @@ public class Auth : ControllerBase
         {
             dataProvider.GetItem<Login>(userSql, new { UserLogin = register.UserLogin });
             
-            return StatusCode(500, "User already exists!");
+            return StatusCode(500, new { message = "User already exists!" });
         }
         catch
         {
