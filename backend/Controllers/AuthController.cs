@@ -46,7 +46,8 @@ public class Auth : ControllerBase
         }
         catch
         {
-            return StatusCode(500,"User doesn't exists or password is incorrect");
+            var response = new { message = "User doesn't exists or password is incorrect" };
+            return StatusCode(500,response);
         }
         
         return Ok(new Dictionary<string, string>
