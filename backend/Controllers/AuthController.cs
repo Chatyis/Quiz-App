@@ -84,8 +84,16 @@ public class Auth : ControllerBase
         
             dataProvider.Execute(@"INSERT INTO UserCredentials (UserLogin, PasswordHash, PasswordSalt)
             VALUES (@UserLogin, @PasswordHash, @PasswordSalt)", login);
-        
-            return Ok();
+
+            var userId = dataProvider.GetItem<String>(
+                "SELECT UserCredentialsId FROM UserCredentials WHERE UserCredentials.UserLogin = @UserLogin",
+                new { UserLogin = register.UserLogin });
+            
+            return Ok(new Dictionary<string, string>
+                {
+                    {"token",CreateToken(register.UserLogin, userId)}
+                }
+            );
         }
     }
 
