@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { MatFormField, MatLabel, MatPrefix } from '@angular/material/form-field';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { MatError, MatFormField, MatLabel, MatPrefix } from '@angular/material/form-field';
 import { MatIcon } from '@angular/material/icon';
 import { MatInput } from '@angular/material/input';
 
@@ -8,11 +8,13 @@ import { MatInput } from '@angular/material/input';
   selector: 'app-input',
   standalone: true,
   imports: [
+    MatError,
     MatFormField,
     MatIcon,
     MatInput,
     MatLabel,
-    MatPrefix
+    MatPrefix,
+    ReactiveFormsModule,
   ],
   templateUrl: './input.component.html',
   styleUrl: './input.component.scss'

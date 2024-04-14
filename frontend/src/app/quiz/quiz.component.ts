@@ -67,15 +67,15 @@ export class QuizComponent implements OnInit {
   }
 
   protected fetchQuestions(): void {
-    this.quizService.getQuestions().subscribe(questions =>
+    this.quizService.getQuestions(this.currentCategory.categoryId).subscribe((questions: any) =>
       this.questions = questions
     )
   }
 
   private fetchCategories(): void {
-    this.menuService.getCategories().subscribe(categories => {
+    this.menuService.getCategories().subscribe((categories: any) => {
       const categoryId = +this.route.snapshot.paramMap.get('id');
-      this.currentCategory = categories.find(category => category.categoryId === categoryId);
+      this.currentCategory = categories.find((category: Category) => category.categoryId === categoryId);
     })
   }
 

@@ -1,12 +1,15 @@
 import { Component } from '@angular/core';
+import { MatButton } from '@angular/material/button';
 import { MatFormField, MatLabel, MatPrefix } from '@angular/material/form-field';
 import { MatIcon } from '@angular/material/icon';
 import { MatInput } from '@angular/material/input';
-import { MatButton } from '@angular/material/button';
-import { RouterLink } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router, RouterLink } from '@angular/router';
 
 import { ActionButtonsComponent } from '../components/action-buttons/action-buttons.component';
+import { FormBuilder, Validators } from '@angular/forms';
 import { InputComponent } from '../components/input/input.component';
+import { LoginService } from '../../../shared/services/rest-api/login.service';
 
 @Component({
   selector: 'app-register',
@@ -26,7 +29,35 @@ import { InputComponent } from '../components/input/input.component';
   styleUrl: './register.component.scss'
 })
 export class RegisterComponent {
+  registerForm = this.fb.group({
+    userLogin: ['', Validators.required],
+    userPassword: ['', Validators.required],
+    confirmPassword: ['', Validators.required]
+  })
+
+  constructor(private fb: FormBuilder,
+              private loginService: LoginService,
+              private snackBar: MatSnackBar,
+              private router: Router) {
+  }
+
   protected register(): void {
-    // TODO apply register logic
+    for (const field in this.registerForm.controls) {
+      this.registerForm.get(field).markAsTouched();
+    }
+    if (this.registerForm.valid) {
+      let registerFormValue = this.registerForm.getRawValue();
+      delete registerFormValue.confirmPassword;
+      this.loginService.register(registerFormValue).subscribe(
+        {
+          next: () => {
+            this.router.navigate(['main']);
+          },
+          error: (err) => {
+            this.snackBar.open(err.error.message, "Close");
+          }
+        }
+      );
+    }
   }
 }

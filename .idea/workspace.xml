@@ -4,15 +4,33 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d78c8baa-40bf-41ba-b705-77c421e24915" name="Changes" comment="feat: material upgrade - adjusted styling to more universal, changed theme, fixed favourite categories">
+    <list default="true" id="d78c8baa-40bf-41ba-b705-77c421e24915" name="Changes" comment="feat: auth api integration, session management">
+      <change afterPath="$PROJECT_DIR$/frontend/proxy.conf.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/shared/interceptors/auth.interceptor.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/shared/models/access-token.model.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/shared/services/rest-api/api-helper.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/menu/menu.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/menu/menu.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/quiz/question/answer-btn/answer-btn.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/quiz/question/answer-btn/answer-btn.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/quiz/question/answer-btn/answer-btn.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/quiz/question/answer-btn/answer-btn.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/quiz/question/question.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/quiz/question/question.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.config.server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app.config.server.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/auth/auth.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/auth/auth.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/auth/components/input/input.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/auth/components/input/input.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/auth/components/input/input.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/auth/components/input/input.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/auth/login/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/auth/login/login.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/auth/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/auth/login/login.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/auth/register/register.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/auth/register/register.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/auth/register/register.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/auth/register/register.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/menu/category-block/category-block.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/menu/category-block/category-block.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/menu/category-block/category-block.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/menu/category-block/category-block.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/menu/menu.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/menu/menu.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/menu/menu.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/menu/menu.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/quiz/quiz.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/quiz/quiz.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/assets/styles/styles-material.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/styles/styles-material.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/styles.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/models/user-credentials.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/models/user-credentials.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/services/rest-api/login.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/services/rest-api/login.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/services/rest-api/menu.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/services/rest-api/menu.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/services/rest-api/quiz.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/services/rest-api/quiz.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,7 +139,11 @@
       <workItem from="1712525973630" duration="2547000" />
       <workItem from="1712596081030" duration="10381000" />
       <workItem from="1712674828201" duration="7430000" />
-      <workItem from="1712767270945" duration="4221000" />
+      <workItem from="1712767270945" duration="5218000" />
+      <workItem from="1712849743079" duration="9349000" />
+      <workItem from="1712956676501" duration="6367000" />
+      <workItem from="1713018108530" duration="11132000" />
+      <workItem from="1713083978343" duration="21175000" />
     </task>
     <task id="LOCAL-00001" summary="feat: Quiz flow without Auth">
       <option name="closed" value="true" />
@@ -211,7 +233,31 @@
       <option name="project" value="LOCAL" />
       <updated>1712616303354</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="feat: buttons theme refactor">
+      <option name="closed" value="true" />
+      <created>1712790302876</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1712790302876</updated>
+    </task>
+    <task id="LOCAL-00013" summary="fix: login error message fix">
+      <option name="closed" value="true" />
+      <created>1712962506803</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1712962506803</updated>
+    </task>
+    <task id="LOCAL-00014" summary="fix: token refresh, middleware order adjustment, conventional eP names">
+      <option name="closed" value="true" />
+      <created>1713135586974</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1713135586974</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -252,6 +298,22 @@
     <MESSAGE value="feat: fixed back compat, defined new theme" />
     <MESSAGE value="fix: fixed back compat, defined new theme" />
     <MESSAGE value="feat: material upgrade - adjusted styling to more universal, changed theme, fixed favourite categories" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: material upgrade - adjusted styling to more universal, changed theme, fixed favourite categories" />
+    <MESSAGE value="feat: buttons theme refactor" />
+    <MESSAGE value="fix: login error message fix" />
+    <MESSAGE value="fix: token refresh, middleware order adjustment, conventional eP names" />
+    <MESSAGE value="feat: auth api integration, session management" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: auth api integration, session management" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/frontend/src/shared/services/rest-api/quiz.service.ts</url>
+          <line>11</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

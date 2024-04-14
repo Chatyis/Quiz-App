@@ -1,5 +1,6 @@
-<app-input description="Login"></app-input>
-<app-input [isPasswordType]="true" description="Enter your password"></app-input>
+<app-input [formControl]="loginForm.controls.userLogin" description="Login"></app-input>
+<app-input [formControl]="loginForm.controls.userPassword" [isPasswordType]="true"
+           description="Enter your password"></app-input>
 <app-action-buttons leftButtonName="Register"
                     rightButtonName="Login"
                     buttonRoute="../register"

@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { MatCard } from "@angular/material/card";
-import { RouterOutlet } from "@angular/router";
-import { NgForOf } from "@angular/common";
 import { MatProgressBar } from "@angular/material/progress-bar";
+import { NgForOf, NgIf } from "@angular/common";
+import { RouterOutlet } from "@angular/router";
 
-import { MenuService } from "../../shared/services/rest-api/menu.service";
 import { Category } from "../../shared/models/category.model";
-import { FavouriteCategoryComponent } from "./favourite-category/favourite-category.component";
 import { CategoryBlockComponent } from "./category-block/category-block.component";
+import { FavouriteCategoryComponent } from "./favourite-category/favourite-category.component";
+import { LoginService } from '../../shared/services/rest-api/login.service';
+import { MenuService } from "../../shared/services/rest-api/menu.service";
 import { UserScore } from '../../shared/models/user-score.model';
 
 @Component({
@@ -18,7 +19,8 @@ import { UserScore } from '../../shared/models/user-score.model';
     NgForOf,
     MatProgressBar,
     FavouriteCategoryComponent,
-    CategoryBlockComponent
+    CategoryBlockComponent,
+    NgIf
   ],
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.scss'
@@ -27,31 +29,31 @@ export class MenuComponent implements OnInit {
   protected categories: Category[] = [];
   protected favouriteCategories: UserScore[] = [];
 
-  constructor(private menuService: MenuService) {
+  constructor(private _menuService: MenuService,
+              protected loginService: LoginService) {
   }
 
   ngOnInit(): void {
-    this.fetchCategories();
-    this.fetchFavouriteCategories();
+    this._fetchCategories();
+    if (!!this.loginService.token) {
+      this._fetchFavouriteCategories();
+    }
   }
 
-  // TODO check if neccessary
-
-  // protected openCategory(categoryName: number): void {
-  //   console.log(categoryName);
-  // }
   protected getCategory(favouriteCategory: UserScore): Category {
     return this.categories.find(category => category.categoryId === favouriteCategory.categoryId)
   }
 
-  private fetchCategories(): void {
-    this.menuService.getCategories().subscribe(categories => this.categories = categories);
+  private _fetchCategories(): void {
+    this._menuService.getCategories().subscribe(
+      (categories: any) => this.categories = categories
+    );
   }
 
-  private fetchFavouriteCategories(): void {
-    this.menuService.getFavouriteCategories().subscribe(favouriteCategories =>
+  private _fetchFavouriteCategories(): void {
+    this._menuService.getFavouriteCategories().subscribe((favouriteCategories: any) =>
       this.favouriteCategories = favouriteCategories
-        .sort((a, b) => a.timesPlayed > b.timesPlayed ? -1 : 1)
+        .sort((a: UserScore, b: UserScore) => a.timesPlayed > b.timesPlayed ? -1 : 1)
     );
   }
 }
