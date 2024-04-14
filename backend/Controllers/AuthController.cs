@@ -13,7 +13,7 @@ namespace Controllers;
 
 [Authorize]
 [ApiController]
-[Route("[controller]")]
+[Route("auth")]
 public class Auth : ControllerBase
 {
     DataProviderDapper dataProvider = new DataProviderDapper();
@@ -25,7 +25,7 @@ public class Auth : ControllerBase
     }
     
     [AllowAnonymous]
-    [HttpPost("/login")]
+    [HttpPost("login")]
     public IActionResult Login(Register loginCredentials)
     {
         string sql = @"SELECT [UserCredentialsId]
@@ -56,7 +56,7 @@ public class Auth : ControllerBase
     }
     
     [AllowAnonymous]
-    [HttpPost("/register")]
+    [HttpPost("register")]
     public IActionResult Register(Register register)
     {
         string userSql = @"SELECT 1
@@ -96,7 +96,7 @@ public class Auth : ControllerBase
         }
     }
 
-    [HttpPost("/logout")]
+    [HttpPost("logout")]
     public IActionResult RevokeToken()
     {
         const string sql = @"update UserCredentials
@@ -107,18 +107,17 @@ public class Auth : ControllerBase
         return Ok();
     }
     
-    [HttpGet("RefreshToken")]
+    [AllowAnonymous]
+    [HttpGet("refresh-token")]
     public IActionResult RefreshToken()
     {
         HttpContext.Request.Headers.TryGetValue("Authorization", out var headerAuth);
         var jwtTokenValue = headerAuth.First().Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)[1];
         var jwtToken = new JwtSecurityToken(jwtTokenValue);
-        
         if (jwtToken.ValidTo.AddHours(23) < DateTime.UtcNow)
         {
-            return StatusCode(403, "Token invalid");
+            return StatusCode(401, "Token invalid");
         }
-
         // TODO I don't delete it right now idk what I meant with this part xD
         // string usernameSql = @"
         //         SELECT UserLogin FROM UserCredentials WHERE UserLogin = @Username";
@@ -127,7 +126,8 @@ public class Auth : ControllerBase
         
         return Ok(new Dictionary<string, string>
         {
-            {"token",CreateToken(User.FindFirst("username")?.Value, User.FindFirst("userId")?.Value)}
+            {"token",CreateToken(jwtToken.Payload.Claims.First(claim => claim.Type == "username").Value,
+                jwtToken.Payload.Claims.First(claim => claim.Type == "userId").Value)}
         });
     }
     
@@ -155,7 +155,7 @@ public class Auth : ControllerBase
         {
             Subject = new ClaimsIdentity(claims),
             SigningCredentials = credentials,
-            Expires = DateTime.Now.AddMinutes(30)
+            Expires = DateTime.Now.AddMinutes(1)//TODO change to 30 minutes
         };
 
         JwtSecurityTokenHandler tokenHandler = new JwtSecurityTokenHandler();

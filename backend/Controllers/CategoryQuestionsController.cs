@@ -7,7 +7,7 @@ using Models;
 namespace Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("category-questions")]
 public class CategoryQuestions : ControllerBase
 {
     private DataProviderDapper _dataProvider = new DataProviderDapper();
@@ -95,7 +95,7 @@ public class CategoryQuestions : ControllerBase
     }
 
     [Authorize]
-    [HttpGet("categoryUserScore")]
+    [HttpGet("category-user-score")]
     public ActionResult<UserCategoryScoreDto> getCategoryUserScore(int categoryId)
     {
         string sql = @"SELECT 
