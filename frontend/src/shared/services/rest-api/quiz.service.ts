@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpParams } from '@angular/common/http';
 
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 
 import { ApiHelperService } from './api-helper.service';
-import { FormGroup } from '@angular/forms';
+import { QuizAnswers } from '../../models/quiz-answers.model';
 
 @Injectable({
   providedIn: 'root'
@@ -18,14 +18,7 @@ export class QuizService {
     return this._apiHelper.get('category-questions/questions', params);
   }
 
-  getResults(quizAnswers: FormGroup): Observable<number> {
-    // quizAnswers.getRawValue()
-    // As from API returned value is just a number
-    return of(4);
-  }
-
-  getCorrectAnswerId(questionId: number, categoryId: number): Observable<number> {
-    // As from API returned value is just a number
-    return of(2);
+  getResults(quizAnswers: QuizAnswers): Observable<number> {
+    return this._apiHelper.post<number>('category-questions/result', quizAnswers);
   }
 }

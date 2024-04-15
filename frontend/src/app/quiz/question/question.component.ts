@@ -1,11 +1,10 @@
 import { Component, EventEmitter, Input, NgZone, OnInit, Output } from '@angular/core';
-import { FormArray, FormControl, ReactiveFormsModule, UntypedFormGroup, Validators } from '@angular/forms';
+import { FormArray, FormControl, ReactiveFormsModule, UntypedFormGroup } from '@angular/forms';
 import { MatProgressBar } from '@angular/material/progress-bar';
 import { NgClass } from '@angular/common';
 
 import { AnswerBtnComponent } from './answer-btn/answer-btn.component';
 import { Question } from '../../../shared/models/question.model';
-import { QuizService } from '../../../shared/services/rest-api/quiz.service';
 
 @Component({
   selector: 'app-question',
@@ -29,7 +28,7 @@ export class QuestionComponent implements OnInit {
   protected correctAnswerId: number = -1;
   protected currentAnswerId: number;
   protected isShowingAnswer: boolean;
-  protected readonly timeToCheckAnswer = 5;
+  protected readonly timeToCheckAnswer = 1;
   protected readonly timeToAnswerQuestion = 30;
   protected timeLeft: number = this.timeToAnswerQuestion;
 
@@ -37,8 +36,7 @@ export class QuestionComponent implements OnInit {
     return this.questions[this.currentQuestionIndex];
   }
 
-  constructor(private ngZone: NgZone,
-              private quizService: QuizService) {
+  constructor(private ngZone: NgZone) {
   }
 
   ngOnInit() {
@@ -72,15 +70,13 @@ export class QuestionComponent implements OnInit {
   private showCorrectAnswer(): void {
     this.isShowingAnswer = true;
     this.timeLeft = this.timeToCheckAnswer;
-    this.quizService.getCorrectAnswerId(this.currentQuestion.categoryQuestionId, this.categoryId).subscribe(correctAnswerId => {
-      this.correctAnswerId = correctAnswerId;
-    })
+    this.correctAnswerId = this.currentQuestion.correctAnswerNumber;
   }
 
   private buildAnswer(answerId: number): FormControl {
     return new FormControl({
-      questionId: [this.questions[this.currentQuestionIndex].categoryQuestionId, Validators.required],
-      answerId: [answerId, Validators.required]
+      questionId: this.questions[this.currentQuestionIndex].categoryQuestionId,
+      answerId: answerId
     });
   }
 

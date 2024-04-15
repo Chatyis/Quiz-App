@@ -75,12 +75,13 @@ export class QuizComponent implements OnInit {
   private fetchCategories(): void {
     this.menuService.getCategories().subscribe((categories: any) => {
       const categoryId = +this.route.snapshot.paramMap.get('id');
+      this.quizForm.controls['categoryId'].setValue(categoryId);
       this.currentCategory = categories.find((category: Category) => category.categoryId === categoryId);
     })
   }
 
   private sendQuizAndGetResults(): void {
-    this.quizService.getResults(this.quizForm).subscribe(correctAnswers =>
+    this.quizService.getResults(this.quizForm.getRawValue()).subscribe(correctAnswers =>
       this.correctAnswers = correctAnswers
     )
   }
