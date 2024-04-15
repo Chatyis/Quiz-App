@@ -22,7 +22,8 @@ public class CategoryQuestions : ControllerBase
             [AnswerTwo],
             [AnswerThree],
             [AnswerFour],
-            [Image] 
+            [Image],
+            [CorrectAnswerNumber]
             FROM CategoryQuestions
             WHERE CategoryId = @CategoryId
             ORDER BY newid();";
