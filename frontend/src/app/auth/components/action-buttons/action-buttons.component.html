@@ -2,7 +2,9 @@
   <button [routerLink]="buttonRoute" color="accent" mat-button>
     {{ leftButtonName }}
   </button>
+  <button *ngIf="isGuestButtonVisible" mat-flat-button routerLink="/main" color="accent">Guest</button>
   <button mat-flat-button (click)="nextButtonClicked.emit()">
     {{ rightButtonName }}
+    <mat-icon iconPositionEnd fontIcon="keyboard_arrow_right" [inline]="false"></mat-icon>
   </button>
 </div>

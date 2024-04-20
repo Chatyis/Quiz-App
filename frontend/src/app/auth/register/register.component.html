@@ -2,7 +2,9 @@
 <app-input [formControl]="registerForm.controls.userPassword" [isPasswordType]="true"
            description="Password"></app-input>
 <app-input [formControl]="registerForm.controls.confirmPassword" [isPasswordType]="true"
-           description="Confirm password"></app-input>
+           description="Confirm password"
+           [customErrorMessage]=" this.registerForm.errors?.['passwordsNotMatch'] ? 'Passwords doesn\'t match' : undefined">
+</app-input>
 
 <app-action-buttons leftButtonName="Back to login"
                     rightButtonName="Register"

@@ -2,6 +2,7 @@
 <app-input [formControl]="loginForm.controls.userPassword" [isPasswordType]="true"
            description="Enter your password"></app-input>
 <app-action-buttons leftButtonName="Register"
+                    [isGuestButtonVisible]="true"
                     rightButtonName="Login"
                     buttonRoute="../register"
                     (nextButtonClicked)="login()">

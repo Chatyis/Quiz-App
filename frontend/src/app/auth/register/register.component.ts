@@ -10,6 +10,7 @@ import { ActionButtonsComponent } from '../components/action-buttons/action-butt
 import { FormBuilder, Validators } from '@angular/forms';
 import { InputComponent } from '../components/input/input.component';
 import { LoginService } from '../../../shared/services/rest-api/login.service';
+import { passwordMatchValidator } from './password-match.directive';
 
 @Component({
   selector: 'app-register',
@@ -33,7 +34,7 @@ export class RegisterComponent {
     userLogin: ['', Validators.required],
     userPassword: ['', Validators.required],
     confirmPassword: ['', Validators.required]
-  })
+  }, {validators: [passwordMatchValidator]})
 
   constructor(private fb: FormBuilder,
               private loginService: LoginService,
@@ -42,6 +43,7 @@ export class RegisterComponent {
   }
 
   protected register(): void {
+    console.log(this.registerForm.errors?.['passwordsNotMatch']);
     for (const field in this.registerForm.controls) {
       this.registerForm.get(field).markAsTouched();
     }

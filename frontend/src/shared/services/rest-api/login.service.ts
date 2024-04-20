@@ -31,6 +31,13 @@ export class LoginService {
     return this._authHelper(userCredentials, 'register');
   }
 
+  logout(): Observable<any> {
+    return this.apiHelper.post('auth/logout').pipe(map((response: any) => {
+      this.cookieService.delete('token');
+      return response;
+    }))
+  }
+
   private _authHelper(userCredentials: UserCredentials, path: string): Observable<AccessToken> {
     return this.apiHelper.post<AccessToken>('auth/' + path, userCredentials)
       .pipe(map((response) => {

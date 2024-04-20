@@ -3,6 +3,6 @@
     <mat-icon matPrefix>{{ isPasswordType ? 'lock' : 'person' }}</mat-icon>
     <mat-label> {{ description }}</mat-label>
     <input matInput [formControl]="formControl" [type]="isPasswordType ? 'password' : 'text'">
-    <mat-error>Please fill this field</mat-error>
+    <mat-error>{{ customErrorMessage ?? 'Please fill this field' }}</mat-error>
   </mat-form-field>
 </div>

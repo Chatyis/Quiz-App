@@ -14,8 +14,12 @@
             <img src="https://www.dogstrust.org.uk/images/800x600/assets/2022-08/labrador_puppy_harefield_dogstrust.jpg"
                  alt="" class="rounded-full object-center w-24 h-24"/>
           </div>
-          <div class="pb-4 w-3/5 my-auto text-center">
+          <div class="w-3/5 my-auto text-center">
             <p class="text-2xl h-full">{{ loginService.username }}</p>
+            <button mat-button class="mt-3" (click)="logout()" routerLink="/auth/login">
+              Logout
+              <mat-icon fontIcon="logout"></mat-icon>
+            </button>
           </div>
         </div>
         <p class="text-2xl text-center">Most played</p>

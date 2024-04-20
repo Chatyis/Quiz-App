@@ -23,4 +23,5 @@ export class InputComponent {
   @Input() isPasswordType: boolean;
   @Input() description: string;
   @Input() formControl: FormControl;
+  @Input() customErrorMessage: string;
 }

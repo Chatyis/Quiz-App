@@ -1,5 +1,5 @@
 <div class="w-full flex gap-3">
-  <button routerLink="../quiz/{{category.categoryId}}" [style.background-color]="'#'+category.color"
+  <button routerLink="../quiz/{{category.categoryId}}" [style.background-color]="'#'+category?.color"
           class="w-2/5 fav-category-btn"
           color="primary"
           mat-raised-button>{{ category.categoryName }}
