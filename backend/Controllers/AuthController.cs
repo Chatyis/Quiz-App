@@ -103,7 +103,7 @@ public class Auth : ControllerBase
         set LastTokenId = null
         where UserCredentialsId = @UserId;";
 
-        dataProvider.Execute(sql, new {UserLogin = User.FindFirst("userId")?.Value});
+        dataProvider.Execute(sql, new {UserId = User.FindFirst("userId")?.Value});
         return Ok();
     }
     
