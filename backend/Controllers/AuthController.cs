@@ -130,6 +130,45 @@ public class Auth : ControllerBase
                 jwtToken.Payload.Claims.First(claim => claim.Type == "userId").Value)}
         });
     }
+
+    [HttpGet("avatar")]
+    public IActionResult GetAvatar()
+    {
+        string sql = @"SELECT Avatar
+         FROM UserData
+         WHERE UserCredentialsId = @UserCredentialsId";
+        
+        return Ok(dataProvider.GetItem<int>(sql, new { UserCredentialsId = Int32.Parse(User.FindFirst("userId").Value) }));
+    }
+    
+    [HttpPost("avatar")]
+    public IActionResult SetAvatar(string avatar)
+    {
+        const string updateSql = @"update UserData
+        set Avatar = @Avatar
+        where UserCredentialsId = @UserCredentialsId;";
+        
+        const string insertSql = @"INSERT INTO UserData (Avatar, UserCredentialsId)
+            VALUES (@Avatar, @UserCredentialsId);";
+        
+        const string userSql = @"SELECT 1
+         FROM UserData
+         WHERE UserCredentialsId = @UserCredentialsId";
+        
+        int _UserCredentialsId = Int32.Parse(User.FindFirst("userId").Value);
+        
+        try
+        {
+            dataProvider.Execute(userSql, new {UserCredentialsId = _UserCredentialsId});
+            dataProvider.Execute(updateSql, new { Avatar = avatar, UserCredentialsId = _UserCredentialsId });
+        }
+        catch (Exception e)
+        {
+            dataProvider.Execute(insertSql, new { Avatar = avatar, UserCredentialsId = _UserCredentialsId });
+        }
+        
+        return Ok();
+    }
     
     private string CreateToken(string username, string userId)
     {
@@ -155,7 +194,7 @@ public class Auth : ControllerBase
         {
             Subject = new ClaimsIdentity(claims),
             SigningCredentials = credentials,
-            Expires = DateTime.Now.AddMinutes(1)//TODO change to 30 minutes
+            Expires = DateTime.Now.AddMinutes(30)
         };
 
         JwtSecurityTokenHandler tokenHandler = new JwtSecurityTokenHandler();
