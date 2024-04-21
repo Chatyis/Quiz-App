@@ -4,33 +4,35 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d78c8baa-40bf-41ba-b705-77c421e24915" name="Changes" comment="feat: auth api integration, session management">
+    <list default="true" id="d78c8baa-40bf-41ba-b705-77c421e24915" name="Changes" comment="feat: changing avatar, finalizing app features,">
       <change afterPath="$PROJECT_DIR$/frontend/proxy.conf.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/shared/interceptors/auth.interceptor.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/shared/models/access-token.model.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/shared/services/rest-api/api-helper.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/menu/avatar-dialog/avatar-dialog.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/menu/avatar-dialog/avatar-dialog.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/menu/avatar-dialog/avatar-dialog.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/assets/avatars/403410637_1676332192776261_6814106955501394680_n.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/assets/avatars/415841760_1773879329703479_883748343621636449_n.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/assets/avatars/423454459_1388682712009499_3967460284621878576_n.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/assets/avatars/423600073_421820403686425_2233402990085360048_n.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/assets/avatars/433653723_331612883256894_3011614297175921315_n.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/assets/avatars/436076758_804919691491055_7548929966283135284_n.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/assets/avatars/436421742_461454329646182_7650166511243929353_n.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/assets/avatars/436746421_1613572282742312_4364309959741528518_n.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/assets/avatars/436817909_415083731156362_4921693546732795644_n.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/assets/avatars/att.2-_bCkAJfW09rPQKhFnDqlw-MSuRxXslxHh3byagroc.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/assets/avatars/att.9h4QOJHdjfvrPebvegXDWOqy5ntxK6hUl1ls7_M8e4s.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/assets/avatars/att._AexEtTaUd-IQxJghwAB2EInFiK1Ee17SYIz9UlVhnk.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/app.config.server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app.config.server.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/app.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app.config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/auth/auth.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/auth/auth.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/auth/components/input/input.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/auth/components/input/input.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/auth/components/input/input.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/auth/components/input/input.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/auth/login/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/auth/login/login.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/auth/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/auth/login/login.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/auth/register/register.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/auth/register/register.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/auth/register/password-match.directive.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/auth/register/password-match.directive.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/auth/register/register.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/auth/register/register.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/menu/category-block/category-block.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/menu/category-block/category-block.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/menu/category-block/category-block.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/menu/category-block/category-block.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/menu/menu.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/menu/menu.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/menu/menu.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/menu/menu.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/quiz/quiz.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/quiz/quiz.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/quiz/question/question.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/quiz/question/question.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/assets/styles/styles-material.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/styles/styles-material.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/models/user-credentials.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/models/user-credentials.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/services/rest-api/api-helper.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/services/rest-api/api-helper.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/shared/services/rest-api/login.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/services/rest-api/login.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/shared/services/rest-api/menu.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/services/rest-api/menu.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/services/rest-api/quiz.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/services/rest-api/quiz.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +76,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/ziom2/Desktop/QuizApp/Quiz-App&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/ziom2/WebstormProjects/calculator&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;SCSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -89,6 +91,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ziom2\Desktop\QuizApp\Quiz-App\frontend\src\assets" />
       <recent name="C:\Users\ziom2\Desktop\QuizApp\Quiz-App\frontend\src\app\auth" />
       <recent name="C:\Users\ziom2\Desktop\QuizApp\Quiz-App\frontend\src\app\login" />
     </key>
@@ -143,7 +146,13 @@
       <workItem from="1712849743079" duration="9349000" />
       <workItem from="1712956676501" duration="6367000" />
       <workItem from="1713018108530" duration="11132000" />
-      <workItem from="1713083978343" duration="21175000" />
+      <workItem from="1713083978343" duration="21208000" />
+      <workItem from="1713216153157" duration="3634000" />
+      <workItem from="1713280117535" duration="1268000" />
+      <workItem from="1713549378459" duration="10735000" />
+      <workItem from="1713596319321" duration="10444000" />
+      <workItem from="1713652021756" duration="2842000" />
+      <workItem from="1713686021240" duration="12679000" />
     </task>
     <task id="LOCAL-00001" summary="feat: Quiz flow without Auth">
       <option name="closed" value="true" />
@@ -257,7 +266,63 @@
       <option name="project" value="LOCAL" />
       <updated>1713135586974</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="feat: auth api integration, session management">
+      <option name="closed" value="true" />
+      <created>1713136099957</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1713136099957</updated>
+    </task>
+    <task id="LOCAL-00016" summary="feat: questions returned with correct answers">
+      <option name="closed" value="true" />
+      <created>1713220217225</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1713220217225</updated>
+    </task>
+    <task id="LOCAL-00017" summary="feat: quiz api integration">
+      <option name="closed" value="true" />
+      <created>1713220288737</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1713220288737</updated>
+    </task>
+    <task id="LOCAL-00018" summary="fix: userLogin to UserId in logout method">
+      <option name="closed" value="true" />
+      <created>1713573397161</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1713573397161</updated>
+    </task>
+    <task id="LOCAL-00019" summary="fix: fixing errors, submit on enter, not found page, logout">
+      <option name="closed" value="true" />
+      <created>1713573515979</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1713573515979</updated>
+    </task>
+    <task id="LOCAL-00020" summary="feat: not-found page because I forgot to git add">
+      <option name="closed" value="true" />
+      <created>1713596366112</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1713596366112</updated>
+    </task>
+    <task id="LOCAL-00021" summary="feat: avatar edit">
+      <option name="closed" value="true" />
+      <created>1713727277924</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1713727277924</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -302,16 +367,22 @@
     <MESSAGE value="fix: login error message fix" />
     <MESSAGE value="fix: token refresh, middleware order adjustment, conventional eP names" />
     <MESSAGE value="feat: auth api integration, session management" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: auth api integration, session management" />
+    <MESSAGE value="feat: questions returned with correct answers" />
+    <MESSAGE value="feat: quiz api integration" />
+    <MESSAGE value="fix: userLogin to UserId in logout method" />
+    <MESSAGE value="fix: fixing errors, submit on enter, not found page, logout" />
+    <MESSAGE value="feat: not-found page because I forgot to git add" />
+    <MESSAGE value="feat: avatar edit" />
+    <MESSAGE value="feat: changing avatar, finalizing app features," />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: changing avatar, finalizing app features," />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/frontend/src/shared/services/rest-api/quiz.service.ts</url>
+          <url>file://$PROJECT_DIR$/frontend/src/app/quiz/question/question.component.html</url>
           <line>11</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="3" />
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

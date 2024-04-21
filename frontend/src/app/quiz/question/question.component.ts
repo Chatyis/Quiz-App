@@ -28,7 +28,7 @@ export class QuestionComponent implements OnInit {
   protected correctAnswerId: number = -1;
   protected currentAnswerId: number;
   protected isShowingAnswer: boolean;
-  protected readonly timeToCheckAnswer = 1;
+  protected readonly timeToCheckAnswer = 3;
   protected readonly timeToAnswerQuestion = 30;
   protected timeLeft: number = this.timeToAnswerQuestion;
 

@@ -21,4 +21,18 @@
   bottom: 0;
   left: 0;
   right: 0;
+  top: 0;
+  height: 0;
+}
+
+.cdk-global-overlay-wrapper {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.mdc-button__label {
+  z-index: 0 !important;
 }

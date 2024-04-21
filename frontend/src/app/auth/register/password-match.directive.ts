@@ -10,8 +10,10 @@ export const passwordMatchValidator: ValidatorFn = (control: AbstractControl): V
   // TODO confirmPasswordValidator dissappears
   if (_passwordsNotMatch) {
     userConfirmPasswordControl.setErrors({'incorrect': true})
-  } else if (Object.keys(userConfirmPasswordControl.errors).length === 1) {
-    userConfirmPasswordControl.setErrors(null)
+  } else if (userConfirmPasswordControl.errors) {
+    if (Object.keys(userConfirmPasswordControl.errors).length === 1) {
+      userConfirmPasswordControl.setErrors(userConfirmPasswordControl.errors)
+    }
   }
 
   return _passwordsNotMatch ? {passwordsNotMatch: true} : null;

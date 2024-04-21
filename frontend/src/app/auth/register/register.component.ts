@@ -43,7 +43,6 @@ export class RegisterComponent {
   }
 
   protected register(): void {
-    console.log(this.registerForm.errors?.['passwordsNotMatch']);
     for (const field in this.registerForm.controls) {
       this.registerForm.get(field).markAsTouched();
     }
