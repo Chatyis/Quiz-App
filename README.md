@@ -1,5 +1,6 @@
 # Quiz App
 Quiz App is an fullstack web application written in Angular + .NET Core, with optional user authorization that allows to answer questions in predefined categories.
+
 ![image](https://github.com/Chatyis/Quiz-App/assets/32648007/673e7720-24a9-46d5-a764-ac0510a8e57a)
 
 In main view player can choose category, change avatar and view his highscores.
